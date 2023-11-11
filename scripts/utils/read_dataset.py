@@ -7,13 +7,9 @@ def read_dataset(data={}, aggregate_col='Year'):
     cols = []
     first_key = (list(data.keys()))[0]
     query += f"{first_key}.\"{aggregate_col}\", "
-<<<<<<< HEAD
-    for key, value in data.items():
-=======
     total = 0
     for key, value in data.items():
         total += 1
->>>>>>> rl
         for col in value:
             if col != aggregate_col:
                 query += f"{key}.\"{col}\", "
@@ -23,21 +19,12 @@ def read_dataset(data={}, aggregate_col='Year'):
     for col in cols:
         query += f"{col}, "
     query = query[:-2] + ' ' # remove last comma
-<<<<<<< HEAD
-    query += "WHERE "
-    for i in range(len(cols) - 1):
-        query += f"{cols[i]}.\"{aggregate_col}\" == {cols[i + 1]}.\"{aggregate_col}\" "
-        if i != len(cols)-2:
-            query += "AND "
-=======
     if total > 1:
         query += "WHERE "
         for i in range(len(cols) - 1):
             query += f"{cols[i]}.\"{aggregate_col}\" == {cols[i + 1]}.\"{aggregate_col}\" "
             if i != len(cols)-2:
                 query += "AND "
->>>>>>> rl
-
     conn = sqlite3.connect('data.db')
     df = pd.read_sql_query(query, conn)
     conn.close()
