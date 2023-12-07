@@ -1,7 +1,7 @@
-# High School Big Data Challenge
+# Multivariate Analysis Between Climate and Biodiversity
 
 ## Purpose
-Code and expirements ran for the high school big data challenge
+Code and expirements for paper on the relationship between climate and biodiversity
 
 
 ## Requirements
